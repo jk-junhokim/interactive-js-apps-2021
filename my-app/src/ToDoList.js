@@ -1,8 +1,8 @@
-import './App.css';
+import './ToDoList.css';
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function App() {
+function ToDoList() {
     const [toDo, setToDo] = useState("");
     const [toDos, setToDos] = useState([]);
     const onChange = (event) => setToDo(event.target.value);
@@ -40,4 +40,4 @@ function App() {
     );
 }
 
-export default App;
+export default ToDoList;
