@@ -9,9 +9,8 @@ https://www.robinwieruch.de/react-event-handler/
 function CoinInverter(){
     const [loading, setLoading] = useState("true");
     const [coins, setCoins] = useState([]);
-    const onChange = (event) => {
-        console.log(event.target.value);
-    }
+    const [selectedCoin, setSelectedCoin] = useState("none");
+    const onChange = (event) => setSelectedCoin(event.target.value);
     useEffect(() => {
         fetch("https://api.coinpaprika.com/v1/tickers")
         .then((response) => response.json())
@@ -23,12 +22,13 @@ function CoinInverter(){
             <h1>Coin Inverter 2021</h1>
             <h3>Total number of coins: ({coins.length})</h3>
             {loading ? <strong>Loading...</strong> : (
-                <select value={coin} onChange={onChange}>
+                <select value="value" onChange={onChange}>
                     {coins.map((coin) => 
                         <option>{coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD</option>
                     )}
                 </select>
             )}
+            <p>You selected {selectedCoin}</p>
         </div>
     );
 }
