@@ -10,6 +10,7 @@ function CoinInverter(){
     const [loading, setLoading] = useState("true");
     const [coins, setCoins] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState("none");
+    const [coinChosen, setCoinChosen] = useState("false");
 
     const onChange = (event) => setSelectedCoin(event.target.value);
     useEffect(() => {
@@ -31,12 +32,14 @@ function CoinInverter(){
                     )}
                 </select>
             )}
-            <p>You selected {selectedCoin}</p>
+            <p id="coinIntro">You selected {selectedCoin}</p>
+
             <form>
-                <p>Enter USD Amount</p>
-                <input type="number" placeholder="1,000,000" title="usdAmount" name="input">
-                <input type="submit" value="usdAmount">
+                <p>Enter USD Amount:</p>
+                <input type="number" placeholder="1,000,000" title="usdAmount" name="input" />
+                <input type="submit" value= {coinChosen ? "coin?" : "convert to {coinChosen}"} />
             </form>
+
         </div>
     );
 }

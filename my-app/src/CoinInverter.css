@@ -1,9 +1,19 @@
 div{
-    margin-left: 50px;
+    margin-left: 20px;
     font-family: Georgia, serif;
 }
 
 p{
     font-weight: 400;
 }
+
+input{
+    margin-right: 10px;
+}
+
+#coinIntro{
+    color: tomato;
+}
+
+
 
